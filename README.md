@@ -1,6 +1,6 @@
-# JIRA Helper
+# Paste Barcode Santander
 
-There is a JIRA helper to view charts.
+There is a Paste Barcode Santander to paste barcode at Internet Bank Santander Brazil.
 
 ### Setup
 
@@ -51,6 +51,13 @@ grunt run
 ```
 grunt test
 ```
+### Deploy
+
+**Generate ZIP file for deploy**
+
+```
+grunt deploy
+```
 
 ### Running in a local environment
 
@@ -58,7 +65,7 @@ grunt test
 
 The basic structure of the product is given in the following way:
 
-* `app/` Contains the source code of the JIRA Helper.
+* `app/` Contains the source code.
 * `bower_components/` Contains all dependencies fetched via [Bower](http://bower.io/). However, this directory is unnecessary for versioning, so it is ignored.
 * `dist/` Contains JIRA Helper generated files, once build task has been run. However, this directory is unnecessary for versioning, so it is ignored.
 * `node_modules/` Contains all dependencies fetched via [Node Packaged Modules](https://www.npmjs.org/). However, this directory is unnecessary for versioning, so it is ignored.
