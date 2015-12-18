@@ -1,6 +1,6 @@
-# JIRA Helper
+# PasteBarCodeSantanderBR
 
-There is a JIRA helper to view charts.
+Cola código de barras no internet banco do SantanderBR Pessoal Física
 
 ### Setup
 

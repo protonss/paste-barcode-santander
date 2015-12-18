@@ -1,0 +1,85 @@
+button {
+    box-shadow: rgba(255, 255, 255, 0.14902) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 22px;
+    min-height: 0px;
+    text-shadow: rgba(0, 0, 0, 0.2) 0px -1px 0px;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 250px;
+    perspective-origin: 25.4531px 11px;
+    transform-origin: 25.4531px 11px;
+    background: rgb(217, 83, 79) linear-gradient(red 0px, red 100%) repeat-x scroll 0% 0% / auto padding-box border-box;
+    border: 1px solid rgb(185, 44, 40);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal normal normal 12px / 18px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 5px 0px;
+    outline: rgb(255, 255, 255) none 0px;
+    padding: 1px 5px;
+}
+
+#DIV_1 {
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 2px 0px;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    height: 86px;
+    width: 273px;
+    perspective-origin: 180px 45px;
+    transform-origin: 180px 45px;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 1px solid #c12e2a;
+    border-radius: 4px 4px 4px 4px;
+    font: normal normal normal normal 14px / 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+#DIV_2 {
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    height: 35px;
+    width: 273px;
+    perspective-origin: 179px 19px;287px
+    transform-origin: 179px 19px;
+    background: linear-gradient(#f00 0,#F44336 100%) repeat-x #337ab7;
+    border-top: 0px none rgb(51, 122, 183);
+    border-right: 0px none rgb(51, 122, 183);
+    border-bottom: 1px solid rgb(51, 122, 183);
+    border-left: 0px none rgb(51, 122, 183);
+    border-radius: 3px 3px 0 0;
+    font: normal normal normal normal 14px / 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    outline: rgb(255, 255, 255) none 0px;
+    padding: 5px 15px;
+}
+
+#H3_3 {
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    height: 17px;
+    width: 273px;
+    perspective-origin: 164px 8.5px;
+    transform-origin: 164px 8.5px;
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 500 normal 16px / 17.6px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0px;
+    outline: rgb(255, 255, 255) none 0px;
+}
+
+#DIV_4 {
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    height: 50px;
+    width: 273px;
+    perspective-origin: 179px 25px;
+    transform-origin: 179px 25px;
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal normal normal 14px / 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 10px;
+}
+
+#DIV_5 {
+  float: left;
+  width: 30px;
+}

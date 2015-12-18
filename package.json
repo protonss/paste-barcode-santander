@@ -1,20 +1,21 @@
 {
-  "name": "jira-helper",
-  "version": "1.2.0",
-  "description": "There is a JIRA helper to view charts.",
+  "name": "PasteBarCodeSantanderBR",
+  "version": "0.0.1",
+  "description": "Cola código de barras no internet bank do Santander Brasil para Pessoal Física",
   "homepage": "https://github.com/protonss/jira-helper",
   "repository": {
     "type": "git",
-    "url": "git@github.com:protonss/jira-helper.git"
+    "url": "git@github.com:protonss/paste-barcode-santanderbr.gif"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-asciify": "^0.2.2",
     "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-cssmin": "^0.12.2",
+    "grunt-contrib-compress": "^0.14.0",
     "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-cssmin": "^0.12.2",
+    "grunt-contrib-imagemin": "^1.0.0",
     "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-imagemin": "^0.9.4",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-githooks": "^0.3.1",

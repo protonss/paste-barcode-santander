@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         log: true
       },
       logo: {
-        text: "JIRA Helper"
+        text: "Paste Barcode SantanderBR"
       }
     },
     clean: {
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
           src: ["*.css", "!*.min.css"],
           dest: "dist/styles/css",
           ext: ".min.css"
-        }]
+                }]
       }
     },
     copy: {
@@ -42,7 +42,15 @@ module.exports = function(grunt) {
         files: [{
           src: "app/manifest.json",
           dest: "dist/manifest.json"
-        }]
+                }]
+      },
+      html: {
+        expand: true,
+        cwd: "app/",
+        src: "*.html",
+        dest: "dist/",
+        flatten: true,
+        filter: "isFile"
       }
     },
     githooks: {
@@ -52,12 +60,15 @@ module.exports = function(grunt) {
     },
     imagemin: {
       dist: {
+        options: {
+          cache: false
+        },
         files: [{
           expand: true,
           cwd: "dist/styles/images/",
           src: ["**/*.{png,jpg,gif}"],
           dest: "dist/styles/images/"
-        }]
+                }]
       }
     },
     jsbeautifier: {
@@ -66,9 +77,9 @@ module.exports = function(grunt) {
       },
       files: {
         src: [
-          "Gruntfile.js",
-          "app/scripts/**/*.js"
-        ]
+                    "Gruntfile.js",
+                    "app/scripts/**/*.js"
+                ]
       },
     },
     jshint: {
@@ -78,26 +89,26 @@ module.exports = function(grunt) {
       },
       files: {
         src: [
-          "Gruntfile.js"
-        ]
+                    "Gruntfile.js"
+                ]
       }
     },
     notify: {
       install: {
         options: {
-          title: "JIRA Helper",
+          title: "PasteBarCodeSantanderBR",
           message: "Installation completed successfully"
         }
       },
       test: {
         options: {
-          title: "JIRA Helper",
+          title: "PasteBarCodeSantanderBR",
           message: "Test has finished running"
         }
       },
       build: {
         options: {
-          title: "JIRA Helper",
+          title: "PasteBarCodeSantanderBR",
           message: "Build completed successfully"
         }
       }
@@ -111,54 +122,86 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        mangle: false,
+        mangle: true,
         compress: {
           drop_console: true
         },
         banner: "/*! <%= package.name %> - v<%= package.version %> */"
       },
-      dist: {
+      dist_inject: {
         options: {
           sourceMap: true,
-          sourceMapName: "dist/scripts/main.min.js.map"
+          sourceMapName: "dist/scripts/inject.min.js.map"
         },
         files: {
-          "dist/scripts/main.min.js": [
-            "bower_components/jquery/jquery.min.js",
-            "bower_components/jquery.balloon.js/jquery.balloon.min.js",
-            "bower_components/highcharts/highcharts.js",
-            "app/scripts/inject.js"
-          ]
+          "dist/scripts/inject.min.js": [
+                        "app/scripts/inject.js",
+                        "app/scripts/functions.js"
+                    ]
         }
+      },
+      dist_popup: {
+        options: {
+          sourceMap: true,
+          sourceMapName: "dist/scripts/popup.min.js.map"
+        },
+        files: {
+          "dist/scripts/popup.min.js": [
+                        "app/scripts/popup.js"
+                    ]
+        }
+      },
+    },
+    compress: {
+      main: {
+        options: {
+          archive: "<%= package.name %> - v<%= package.version %>.zip"
+        },
+        files: [ // includes files in path
+          {
+            expand: true,
+            cwd: "dist/",
+            src: ["**"],
+            filter: "isFile"
+          }
+                ]
       }
     },
     watch: {
       json: {
         files: [
-          "app/manifest.json"
-        ],
+                    "app/manifest.json"
+                ],
         tasks: [
-          "copy"
-        ]
+                    "copy"
+                ]
       },
       js: {
         files: [
-          "Gruntfile.js",
-          "app/scripts/**/*.js"
-        ],
+                    "Gruntfile.js",
+                    "app/scripts/**/*.js"
+                ],
         tasks: [
-          "jsbeautifier",
-          "jshint",
-          "uglify"
-        ]
+                    "jsbeautifier",
+                    "jshint",
+                    "uglify"
+                ]
       },
       css: {
         files: [
-          "app/styles/css"
-        ],
+                    "app/styles/css/**/*.css"
+                ],
         tasks: [
-          "cssmin"
-        ]
+                    "cssmin"
+                ]
+      },
+      html: {
+        files: [
+                    "app/**/*.html"
+                ],
+        tasks: [
+                    "copy"
+                ]
       }
     }
   });
@@ -171,6 +214,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-imagemin");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-compress");
   grunt.loadNpmTasks("grunt-githooks");
   grunt.loadNpmTasks("grunt-jsbeautifier");
   grunt.loadNpmTasks("grunt-newer");
@@ -178,21 +222,22 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-shell");
 
   grunt.registerTask("build", [
-    "shell:bower",
-    "clean:build",
-    "copy",
-    "jsbeautifier",
-    "jshint",
-    "cssmin",
-    "newer:imagemin",
-    "newer:uglify",
-    "asciify",
-    "notify:build"
-  ]);
+        "shell:bower",
+        "clean:build",
+        "copy",
+        "jsbeautifier",
+        "jshint",
+        "cssmin",
+        "newer:imagemin",
+        "newer:uglify",
+        "asciify",
+        "notify:build"
+    ]);
 
   grunt.registerTask("default", ["install"]);
   grunt.registerTask("install", ["build", "notify:install"]);
   grunt.registerTask("run", ["watch"]);
+  grunt.registerTask("deploy", ["build", "compress"]);
   grunt.registerTask("test", ["jshint", "notify:test"]);
 
 };

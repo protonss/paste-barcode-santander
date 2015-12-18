@@ -1,35 +1,44 @@
 {
   "manifest_version": 2,
-  "version": "1.2.1",
-  "name": "JIRA Helper",
-  "short_name": "Jira Helper",
-  "description": "There is a JIRA helper to view charts.",
+  "version": "0.0.1",
+  "name": "Paste BarCode SantanderBR",
+  "short_name": "PasteBarCodeSantanderBR",
+  "description": "Cole o código de barras no internet bank do Santander Brasil para Pessoa Física de forma simples e fácil",
   "update_url": "https://clients2.google.com/service/update2/crx",
   "icons": {
-    "16": "styles/images/jira-16.png",
-    "48": "styles/images/jira-48.png",
-    "128": "styles/images/jira-128.png"
+    "16": "styles/images/PasteBarCodeSantanderBR-16.png",
+    "48": "styles/images/PasteBarCodeSantanderBR-48.png",
+    "128": "styles/images/PasteBarCodeSantanderBR-128.png"
+  },
+  "browser_action": {
+   "default_icon": {
+     "19": "styles/images/PasteBarCodeSantanderBR-16.png",
+     "38": "styles/images/PasteBarCodeSantanderBR-38.png"
+   },
+   "default_title": "Paste BarCode SantanderBR",
+   "default_popup": "popup.html"
   },
   "permissions": [
     "http://*/*",
-    "https://*/*"
+    "https://*/*", 
+    "tabs"
   ],
   "web_accessible_resources": [
     "styles/images/*.png",
-    "scripts/main.min.js.map",
-    "scripts/inject.js"
+    "scripts/inject.min.js.map",
+    "scripts/inject.min.js",
+    "scripts/popup.min.js.map",
+    "scripts/popup.min.js",
+    "styles/css/popup.min.css",
+    "popup.html"
   ],
   "content_scripts": [{
     "js": [
-      "scripts/main.min.js"
-    ],
-    "css": [
-      "styles/css/inject.min.css"
+      "scripts/inject.min.js"
     ],
     "matches": [
       "*://*/*",
       "file://*/*"
     ]
-  }],
-  "offline_enabled": false
+  }]
 }
