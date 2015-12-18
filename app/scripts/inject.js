@@ -57,7 +57,7 @@ function createBarCodeArray(barCode) {
 
   var barCodeArray = [];
 
-  //34191 75025 73752 572930 80101 010009 7 66470000148069
+  //34191750257375257293080101010009766470000148069
   //03399 64652 32300 000000 03046 501023 1 66430000497593
   barCodeArray.push(barCode.substring(0, 5));
   barCodeArray.push(barCode.substring(5, 10));
